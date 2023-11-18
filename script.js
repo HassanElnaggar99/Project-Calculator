@@ -47,7 +47,7 @@ operators.addEventListener("click", function(e) {
       case "btn_clear":
         results.textContent = "";
         break;
-      case "btn_=":
+      case "btn_equal":
       {
         results.textContent = evaluate(results.textContent) || "";
       }
