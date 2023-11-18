@@ -1,5 +1,3 @@
-let num1, op, num2;
-
 const operators = document.querySelector("#operators");
 operators.addEventListener("mousedown", function(e) {
   let btn = e.target;
@@ -49,12 +47,52 @@ operators.addEventListener("click", function(e) {
       case "btn_clear":
         results.textContent = "";
         break;
+      case "btn_=":
+      {
+        results.textContent = evaluate(results.textContent) || "";
+      }
+        break;
+      case "btn_+":
+      case "btn_-":
+      case "btn_x":
+      case "btn_divide":
+        let ans = evaluate(results.textContent);
+        if (ans) {
+          results.textContent = ans ;
+        }
+        switch(btn.id) {
+          case "btn_+":
+            results.textContent += " + ";
+            break;
+          case "btn_-":
+            results.textContent += " - ";
+            break;
+          case "btn_x":
+            results.textContent += " × ";
+            break;
+          case "btn_divide":
+            results.textContent += " ÷ ";
+            break;
+        }
 
+        break;
+      case "btn_percent":
+        results.textContent += " %";
+        results.textContent = evaluate(results.textContent) || "";
+        break;
+      case "btn_sign":
+        results.textContent += " +/-";
+        results.textContent = evaluate(results.textContent) || "";
+        break;
     }
   }
 });
 
 const results = document.querySelector("#results");
+
+function myPrecision(num) {
+  return Math.round(num * 1000) / 1000;
+}
 
 function evaluate(string) {
   let parts = string.split(" ");
@@ -87,5 +125,9 @@ function evaluate(string) {
     }
     num1 = result;
   }
-  return result || Number(string);
+  if (result === Infinity || result === -Infinity) {
+    return "ERROR";
+  }
+  result = result || Number(string);
+  return myPrecision(result);
 }
