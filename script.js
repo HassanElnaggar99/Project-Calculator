@@ -55,3 +55,37 @@ operators.addEventListener("click", function(e) {
 });
 
 const results = document.querySelector("#results");
+
+function evaluate(string) {
+  let parts = string.split(" ");
+  let num1, op, num2, result;
+  num1 = Number(parts[0]);
+  for (let i = 1; i < parts.length; i += 2) {
+    op = parts[i];
+    num2 = Number(parts[i + 1]);
+    switch (op) {
+      case '+':
+        result = num1 + num2;
+        break;
+      case '-':
+        result = num1 - num2;
+        break;
+      case '×':
+      case '*':
+        result = num1 * num2;
+        break;
+      case '÷':
+      case '/':
+        result = num1 / num2;
+        break;
+      case '%':
+        result = num1 / 100;
+        break;
+      case '+/-':
+        result = -num1;
+        break;
+    }
+    num1 = result;
+  }
+  return result || Number(string);
+}
