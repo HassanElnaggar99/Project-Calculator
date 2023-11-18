@@ -1,5 +1,5 @@
 * {
-  font-family: Roboto, sans-serif;
+  font-family: monospace;
   font-size: 20px;
   font-weight: bold;
 }
@@ -30,8 +30,8 @@ body {
   height: 25%;
   box-sizing: border-box;
   text-align: end;
-  font-size: 24px;
-  padding: 80px 20px 0 0;
+  font-size: 40px;
+  padding: 70px 20px 10px 0;
   /* width: 400px; */
   /* border: 3px solid green; */
   background-color:#D9CEB2;
