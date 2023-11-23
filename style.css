@@ -56,10 +56,10 @@ body {
 }
 
 #btn_back {
-  background-color: red;
+  background-color: red !important;
   color: white;
 }
 #btn_equal {
-  background-color: #00ff00;
+  background-color: #00ff00 !important;
   color: #f2f2f2;
 }
